@@ -1,8 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!
+{% block title %}Home
 {% endblock %}
 
 {% block body %}
-	<h1>hello</h1>
+	<h1>Bonjour</h1>
+	{% if app.user %}
+		<div class="mb-3">
+			You are logged in as
+			{{ app.user.username }},
+			<a href="{{ path('app_logout') }}">Logout</a>
+		</div>
+
+	{% else %}
+		<p>
+			si vous n'avez pas de compte
+			<a href="{{path('app_register')}}">inscrez-vous ici</a>
+		</p>
+		<p>si vous avez déjà un compte,
+			<a href="{{path('app_login')}}">connectez-vous ici</a>
+		</p>
+
+	{% endif %}
+
 {% endblock %}
