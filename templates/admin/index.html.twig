@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home
+{% block title %}Hello AdminController!
 {% endblock %}
 
 {% block body %}
@@ -10,7 +10,7 @@
 			You are logged in as
 			{{ app.user.username }},
 			<p>
-				{% if 'ROLE_ADMIN' in app.user.roles %}
+				{% if 'ADMIN' in app.user.roles %}
 					ADMIN
 				{% else %}
 					USER
@@ -34,5 +34,6 @@
 		</p>
 
 	{% endif %}
+
 
 {% endblock %}

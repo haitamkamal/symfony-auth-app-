@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UpgradeRoleController!
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in app.flashes('error') %}
+		<div class="alert alert-danger">{{ message }}</div>
+	{% endfor %}
+
+	<h1>Upgrade Role</h1>
+
+	<form action="{{ path('app_upgrade_role') }}" method="POST">
+		<label for="upgrade_password">Enter Admin Password:</label>
+		<input type="password" name="upgrade_password" id="upgrade_password" required>
+		<button type="submit">Upgrade Role</button>
+	</form>
+
+
+{% endblock %}
